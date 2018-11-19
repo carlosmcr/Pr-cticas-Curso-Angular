@@ -2,10 +2,13 @@
 <div class="container">
   <ul>
     <li *ngFor="let curso of cursos" (click)="seleccionar(curso)">
-      <h2>{{ curso.nombre }}</h2>
+      <h2>{{ curso.nombre | uppercase }}</h2>
       <p>{{ curso.descripcion }}</p>
       <p *ngIf="curso.duracion >= 8; else: bloqueElse">Jornada Completa</p>
-      <ng-template #bloqueElse>Media Jornada</ng-template>
+      <ng-template #bloqueElse><p>Media Jornada</p></ng-template>
+      <p>Precio: {{ curso.precio | currency:'EUR': true}}</p>
+      <p>Fecha: {{ curso.fecha | date:'dd-MM-yyyy'}}</p>
+      <p>Multiplicacion {{ curso.precio | multiplicador: '2' }}</p>
     </li>
   </ul>
 </div>

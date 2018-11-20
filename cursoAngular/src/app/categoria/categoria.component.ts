@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class CategoriaComponent implements OnInit {
   data: Observable<Array<Categoria>>;
   categorias: Array<Categoria>;
+  categoria: Observable<Categoria>;
 
   constructor(public remote: RemoteDataService) {}
 
@@ -18,6 +19,11 @@ export class CategoriaComponent implements OnInit {
     this.data = this.remote.retornarData();
     this.data.subscribe(arrayData => {
       this.categorias = arrayData;
+    });  }
+
+  descripcion(id) {
+    this.remote.retornarCategoriaById(id).subscribe(categoria => {
+      console.log(categoria);
     });
   }
 }

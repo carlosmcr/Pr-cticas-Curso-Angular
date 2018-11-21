@@ -1,5 +1,6 @@
 <h2>Listado de categorias</h2>
 <div *ngFor="let categoria of categorias">
-  <p>{{categoria.id_categoria}} {{categoria.nombre}} <button type="button" class="btn btn-primary" (click)="descripcion(categoria.id_categoria)">Informacion</button></p>
+  <p>{{categoria.id_categoria}} {{categoria.nombre}} <button type="button" class="btn btn-danger" (click)="deleteCategoriaById(categoria.id_categoria)">Borrar</button></p>
 </div>
+
 

@@ -7,13 +7,22 @@ import { Categoria } from './../models/categoria.model';
   providedIn: 'root'
 })
 export class RemoteDataService {
-  constructor(public httpClient: HttpClient) {}
-  retornarData() {
-    return this.httpClient.get<Array<Categoria>>('http://localhost:8082/categoria');
 
+  url: string = 'http://localhost:8082/categoria';
+
+  constructor(public httpClient: HttpClient) {}
+
+  getAllCategorias() {
+    return this.httpClient.get<Array<Categoria>>(this.url);
   }
-  retornarCategoriaById(id) {
-    return this.httpClient.get<Categoria>('http://localhost:8082/categoria/' + id);
+  getCategoriaById(id) {
+    return this.httpClient.get<Categoria>(this.url + '/' + id);
+  }
+  createCategoria(categoria) {
+    return this.httpClient.post<Categoria>(this.url,  categoria);
+  }
+  deleteCategoria(id) {
+    return  this.httpClient.delete<String>(this.url + '/' + id);
   }
 
 }

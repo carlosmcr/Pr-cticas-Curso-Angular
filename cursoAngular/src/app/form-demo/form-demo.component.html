@@ -1,0 +1,5 @@
+<form class="form-inline" role="form" (ngSubmit)="onSubmit(catForm);" #catForm="ngForm">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="email2" placeholder="Nombre" name ="nombre" required #nombre [(ngModel)]="categoria.nombre" >
+  <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+  <button type="button" class="btn btn-danger mb-2" (click)="limpiar(catForm)">Limpiar</button>
+</form>
